@@ -1,51 +1,30 @@
-// VARIÁVEIS
-let heroi = "Saladeiro" // Defina abaixo o nome do herói
-let xp = 9200 // Defina abaixo quanto de XP o herói possuí
-let dificuldade = 1 // Qual a dificuldade do jogo? 1: fácil - 1*XP | 2: médio - 2*XP | 3: difícil - 3*XP
+// INPUT - VARIÁVEIS
+// Aqui se define a quantidade de Vitórias e Derrotas que o Player teve
+let saldo = quantidadeDeVitoriasDerrotas(1005, 50)
+
+// Função que contabiliza a diferença das Vitórias para as Derrotas
+function quantidadeDeVitoriasDerrotas(vitoria, derrota){
+    vitoriasMenosDerrotas = vitoria - derrota
+    return vitoriasMenosDerrotas
+}
+
+// É analisado o Nível do player
 let nivel
-
-// __________________________
-// Verificação da dificuldade
-if(dificuldade >= 1 && dificuldade <=3){
-    xp = xp * dificuldade
-}else{
-    dificuldade = 1
-}
-
-// SAÍDA - Definição da dificuldade escolhida
-switch(dificuldade){
-    case 1:
-        console.log("Dificuldade escolhida: Fácil")
-        break
-
-    case 2:
-        console.log("Dificuldade escolhida: Média")
-        break
-
-    case 3:
-        console.log("Dificuldade escolhida: Difícil")
-        break
-}
-
-// Analise do nível
-if(xp <= 1000){
+if (saldo <= 10) {
     nivel = "Ferro"
-}else if(xp >= 1001 && xp <= 2000 ){
+} else if (saldo > 10 && saldo <= 20){
     nivel = "Bronze"
-}else if(xp >= 2001 && xp <= 5000){
+} else if (saldo > 20 && saldo <= 50){
     nivel = "Prata"
-}else if(xp >= 5001 && xp <= 7000){
+} else if (saldo > 50 && saldo <= 80){
     nivel = "Ouro"
-}else if(xp >= 7001 && xp <= 8000){
-    nivel = "Platina"
-}else if(xp >= 8001 && xp <= 9000){
-    nivel = "Ascedente"
-}else if(xp >= 9001 && xp <= 10000){
+} else if (saldo > 80 && saldo <= 90){
+    nivel = "Diamante"
+} else if (saldo > 90 && saldo <= 100){
+    nivel = "Lendário"
+} else{
     nivel = "Imortal"
-}else{
-    nivel = "Radiante"
 }
 
 // SAÍDA
-console.log("O Heroí de nome " + heroi + " está no nível de " + nivel + "!")
-console.log("XP total: " + xp + "!") // Verificação da pontuação total do XP
+console.log(`O Herói tem o saldo de ${saldo} e está no nível de ${nivel}!`)
